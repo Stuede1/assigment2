@@ -11,7 +11,8 @@
       "publisher": "No Starch Press",
       "pages": 472,
       "description": "JavaScript lies at the heart of almost every modern web application, from social apps to the newest browser-based games. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-      "website": "http://eloquentjavascript.net/"
+      "website": "http://eloquentjavascript.net/",
+      "price": 20.97
     },
     {
       "photo": "https://th.bing.com/th/id/R.b6984da1ea25eb848983f02587c6a37c?rik=xsAmlQsL5HpfBg&riu=http%3a%2f%2fprodimage.images-bn.com%2fpimages%2f9781449334871_p0_v4_s1200x630.jpg&ehk=1x%2fzWN1G5TCWOlL%2fkhxjwe1b03Uxb%2fIofjxqnZkHOfs%3d&risl=&pid=ImgRaw&r=0",
@@ -24,7 +25,8 @@
       "publisher": "O'Reilly Media",
       "pages": 254,
       "description": "With Learning JavaScript Design Patterns, you'll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you.",
-      "website": "http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/"
+      "website": "http://www.addyosmani.com/resources/essentialjsdesignpatterns/book/",
+      "price": 25.11
     },
     {
       "photo": "https://i.pinimg.com/originals/6c/e1/e3/6ce1e3d856860d67c76b5212e981f55b.jpg",
@@ -37,9 +39,11 @@
       "publisher": "O'Reilly Media",
       "pages": 460,
       "description": "Like it or not, JavaScript is everywhere these days-from browser to server to mobile-and now you, too, need to learn the language or dive deeper than you have. This concise book guides you into and through JavaScript, written by a veteran programmer who once found himself in the same position.",
-      "website": "http://speakingjs.com/"
+      "website": "http://speakingjs.com/",
+      "price": 30.45
     },
     {
+      "photo": "https://th.bing.com/th/id/OIP.c4Eu4zaF5OCgmoMK38ttgAHaJt?pid=ImgDet&rs=1",
       "id": 4,
       "isbn": "9781491950296",
       "title": "Programming JavaScript Applications",
@@ -49,9 +53,11 @@
       "publisher": "O'Reilly Media",
       "pages": 254,
       "description": "Take advantage of JavaScript's power to build robust web-scale or enterprise applications that are easy to extend and maintain. By applying the design patterns outlined in this practical book, experienced JavaScript developers will learn how to write flexible and resilient code that's easier-yes, easier-to work with as your code base grows.",
-      "website": "http://chimera.labs.oreilly.com/books/1234000000262/index.html"
+      "website": "http://chimera.labs.oreilly.com/books/1234000000262/index.html",
+      "price": 15.89
     },
     {
+      "photo": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1465611668i/30024696._UY630_SR1200,630_.jpg",
       "id": 5,
       "isbn": "9781593277574",
       "title": "Understanding ECMAScript 6",
@@ -61,9 +67,11 @@
       "publisher": "No Starch Press",
       "pages": 352,
       "description": "ECMAScript 6 represents the biggest update to the core of JavaScript in the history of the language. In Understanding ECMAScript 6, expert developer Nicholas C. Zakas provides a complete guide to the object types, syntax, and other exciting changes that ECMAScript 6 brings to JavaScript.",
-      "website": "https://leanpub.com/understandinges6/read"
+      "website": "https://leanpub.com/understandinges6/read",
+      "price": 30.99
     },
     {
+      "photo": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1403170838i/20901022._UY630_SR1200,630_.jpg",
       "id": 6,
       "isbn": "9781491904244",
       "title": "You Don't Know JS",
@@ -73,9 +81,11 @@
       "publisher": "O'Reilly Media",
       "pages": 278,
       "description": "No matter how much experience you have with JavaScript, odds are you don’t fully understand the language. As part of the \"You Don’t Know JS\" series, this compact guide focuses on new features available in ECMAScript 6 (ES6), the latest version of the standard upon which JavaScript is built.",
-      "website": "https://github.com/getify/You-Dont-Know-JS/tree/master/es6%20&%20beyond"
+      "website": "https://github.com/getify/You-Dont-Know-JS/tree/master/es6%20&%20beyond",
+      "price": 25.00
     },
     {
+      "photo":"https://th.bing.com/th/id/OIP.au6qWwpFuDNJbe40P_s6oAHaJ4?pid=ImgDet&rs=1",
       "id": 7,
       "isbn": "9781449325862",
       "title": "Git Pocket Guide",
@@ -85,9 +95,11 @@
       "publisher": "O'Reilly Media",
       "pages": 234,
       "description": "This pocket guide is the perfect on-the-job companion to Git, the distributed version control system. It provides a compact, readable introduction to Git for new users, as well as a reference to common commands and procedures for those of you with Git experience.",
-      "website": "http://chimera.labs.oreilly.com/books/1230000000561/index.html"
+      "website": "http://chimera.labs.oreilly.com/books/1230000000561/index.html",
+      "price": 20.15
     },
     {
+      "photo": "https://th.bing.com/th/id/OIP.599o6tz4lu3kknhMzxQ32gHaJu?pid=ImgDet&rs=1",
       "id": 8,
       "isbn": "9781449337711",
       "title": "Designing Evolvable Web APIs with ASP.NET",
@@ -97,7 +109,8 @@
       "publisher": "O'Reilly Media",
       "pages": 538,
       "description": "Design and build Web APIs for a broad range of clients—including browsers and mobile devices—that can adapt to change over time. This practical, hands-on guide takes you through the theory and tools you need to build evolvable HTTP services with Microsoft’s ASP.NET Web API framework. In the process, you’ll learn how design and implement a real-world Web API.",
-      "website": "http://chimera.labs.oreilly.com/books/1234000001708/index.html"
+      "website": "http://chimera.labs.oreilly.com/books/1234000001708/index.html",
+      "price": 10.95
     },
     {
       "id": 9,

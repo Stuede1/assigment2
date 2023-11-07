@@ -1,21 +1,28 @@
 import React, { useState, useEffect } from "react";
 import items from "./selected_products.json";
-
+import Shopview3 from "./Shopview3";
 const Shop = () => {
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
-  const [showClass, setShowClass] = useState(true);
+  const [showClass, setShowClass] = useState('view1');
+   // 'view1' is the initial page
 
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
+  const [filteredItems, setFilteredItems] = useState(items); // Store filtered items
+
   const handleChange = (e) => {
     setQuery(e.target.value);
-    console.log("Step 6 : in handleChange, Target Value :", e.target.value, " Query Value :", query);
-    const results = listItems.filter(eachProduct => {
-      if (e.target.value === "") return listItems;
-      return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase())
+
+    // Filter items based on the search query
+    const results = items.filter((eachProduct) => {
+      if (e.target.value === "") return true;
+      return eachProduct.title.toLowerCase().includes(e.target.value.toLowerCase());
     });
-    setCart(results);
-  }
+
+    setFilteredItems(results); // Update filteredItems state
+  };
+  
+
 
   const addToCart = (el) => {
     setCart([...cart, el]);
@@ -35,14 +42,14 @@ const Shop = () => {
 
   const removeFromCart = (el) => {
     let hardCopy = [...cart];
-    hardCopy = hardCopy.filter((cartItem) => cartItem.productID !== el.productID);
+    hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
     setCart(hardCopy);
   };
 
   const listItems = items.map((el) => (
     // PRODUCT
     <div class="card shadow-sm">
-      <img src={el.image_url} alt={el.productName} hspace="30" vspace="30" />
+      
       <div class="card-header">
       <img class="img-fluid" src={el.photo} width={400} />
       </div>
@@ -56,24 +63,10 @@ const Shop = () => {
          <li>Pages: {el.pages}</li>
          <li>Description: {el.description}</li>
          <li>Publisher: {el.publisher}</li>
+         <li>Price: {el.price}</li>
 
-      {/* "title": "Eloquent JavaScript, Second Edition",
-      "subtitle": "A Modern Introduction to Programming",
-      "author": "Marijn Haverbeke",
-      "published": "2014-12-14T00:00:00.000Z",
-      "publisher": "No Starch Press",
-      "pages": 472,
-      "description": "JavaScript lies at the heart of almost every modern web application, from social apps to the newest browser-based games. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-      "website": "http://eloquentjavascript.net/" */}
           </ul>
-          /* <ul>
-            <li>Size: {el.productDescription.size}</li>
-            <li>Resolution: {el.productDescription.resolution}</li>
-            <li>Processor: {el.productDescription.processor}</li>
-            <li>RAM: {el.productDescription.ram}</li>
-            <li>Storage: {el.productDescription.storage}</li>
-            <li>Operating System: {el.productDescription.operatingSystem}</li>
-          </ul> */}
+}
         </p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
@@ -81,10 +74,10 @@ const Shop = () => {
               Add to Cart
             </button> */}
             <button type="button" variant="light" onClick={() => removeFromCart(el)} > - </button>{" "}
-            <button type="button" variant="light" onClick={() => addToCart(el)}> + </button>
+            <button type="button" variant="light" onClick={() => addToCart(el)}> + </button> 
           </div>
           <div class="card-body">
-            ${el.price} <span class="close">&#10005;</span>{howManyofThis(el.productID)}
+            ${el.price} <span class="close">&#10005;</span>{howManyofThis(el.id)}
           </div>
         </div>
       </div>
@@ -96,10 +89,10 @@ const Shop = () => {
     <div class="row border-top border-bottom" key={el.id}>
       <div class="row main align-items-center">
         <div class="col-2">
-          <img class="img-fluid" src={el.image_url} />
+          <img class="img-fluid" src={el.photo} />
         </div>
         <div class="col">
-          <div class="row text-muted">{el.productName}</div>
+          <div class="row text-muted">{el.title}</div>
           {/* <div class="row">{el.category}</div> */}
         </div>
         <div class="col">
@@ -118,20 +111,20 @@ const Shop = () => {
         </div>
         <div class="col">
           ${el.price} <span class="close">&#10005;</span>
-          {howManyofThis(el.productID)}
+          {howManyofThis(el.id)}
         </div>
       </div>
     </div>
   ));
 
   function howManyofThis(id) {
-    let hmot = cart.filter((cartItem) => cartItem.productID === id);
+    let hmot = cart.filter((cartItem) => cartItem.id === id);
     return hmot.length;
   }
 
   const cartItems = cart.map((el) => (
     <div key={el.id}>
-      <img class="img-fluid" src={el.image} width={30} />
+      <img class="img-fluid" src={el.photo} width={30} />
       {el.title}${el.price}
     </div>
   ));
@@ -160,7 +153,7 @@ const Shop = () => {
                   <a
                     class="nav-link active"
                     aria-current="page"
-                    href="./laptops.html"
+                    href=""
                   >
                     Books
                   </a>
@@ -174,7 +167,7 @@ const Shop = () => {
 
 
 
-              <button type="button" onClick={() => setShowClass(!showClass)}>
+              <button type="button" onClick={() => setShowClass('view2')}>
                 {" "}
                 Checkout Cart{" "}
               </button>
@@ -182,7 +175,7 @@ const Shop = () => {
           </div>
         </nav>
       </header>
-      {showClass && (
+      {showClass =='view1' && (
         <main>
           <section class="py-5 text-center container">
             <div class="row py-lg-5">
@@ -211,7 +204,7 @@ const Shop = () => {
         </main>
       )}
 
-      {showClass && (
+      {showClass == 'veiw1' && (
         <footer class="text-muted py-5" background-color="rgb(220, 218, 219)">
           <div class="container">
             <p class="float-end mb-1">
@@ -224,19 +217,20 @@ const Shop = () => {
           </div>
         </footer>
       )}
+    
 
-      {!showClass && (
+      {showClass == 'view2' && (
         <div>
           <div class="col-md-8 cart">
             <div class="title">
               <div class="row">
                 <div class="col">
                   <h4>
-                    <b>Cart</b>
+                    <b><br></br><br></br>Cart</b>
                   </h4>
                 </div>
                 <div class="col align-self-center text-right text-muted">
-                  Products selected {cart.length}
+                 <br></br><br></br> Products selected {cart.length}
                 </div>
               </div>
             </div>
@@ -248,115 +242,22 @@ const Shop = () => {
               <span class="lead fw-normal">${cartTotal}</span>
             </p>
           </div>
+          <div class="float-end">
+          <button type="button" onClick={() => setShowClass('view3')}> 
+         
+                {" "}
+                Order {" "}
+              </button>
+          </div>
         </div>
+
       )}
+
+      {showClass == 'view3' && <Shopview3 />}
+ 
+
+      
     </body>
   );
 };
 export default Shop;
-// import React, { useState, useEffect } from "react";
-// import items from "./selected_products.json";
-
-// const Shop = () => {
-//   const [cart, setCart] = useState([]);
-//   const [cartTotal, setCartTotal] = useState(0);
-
-//   const addToCart = (el) => {
-//     setCart([...cart, el]);
-//   };
-
-//   const removeFromCart = (el) => {
-//     let hardCopy = [...cart];
-//     hardCopy = hardCopy.filter((cartItem) => cartItem.id !== el.id);
-//     setCart(hardCopy);
-//   };
-
-//   function howManyofThis(id) {
-//     let hmot = cart.filter((cartItem) => cartItem.id === id);
-//     return hmot.length;
-//   }
-
-//   const cartItems = cart.map((el) => (
-//     <div key={el.id}>
-//       <img class="img-fluid" src={el.image} width={150} />
-//       {el.title}${el.price}
-//     </div>
-//   ));
-
-//   useEffect(() => {
-//     total();
-//   }, [cart]);
-//   const total = () => {
-//     let totalVal = 0;
-//     for (let i = 0; i < cart.length; i++) {
-//       totalVal += cart[i].price;
-//     }
-//     setCartTotal(totalVal);
-//   };
-
-//   const listItems = items.map((el) => (
-//     // PRODUCT
-//     <div class="row border-top border-bottom" key={el.id}>
-//       <div class="row main align-items-center">
-//         <div class="col-2">
-//           <img class="img-fluid" src={el.image} />
-//         </div>
-//         <div class="col">
-//           <div class="row text-muted">{el.title}</div>
-//           <div class="row">{el.category}</div>
-//         </div>
-//         <div class="col">
-//           <button
-//             type="button"
-//             variant="light"
-//             onClick={() => removeFromCart(el)}
-//           >
-//             {" "}
-//             -{" "}
-//           </button>{" "}
-//           <button type="button" variant="light" onClick={() => addToCart(el)}>
-//             {" "}
-//             +{" "}
-//           </button>
-//         </div>
-//         <div class="col">
-//           ${el.price} <span class="close">&#10005;</span>
-//           {howManyofThis(el.id)}
-//         </div>
-//       </div>
-//     </div>
-//   ));
-
-//   return (
-//     <div>
-//       STORE SE/ComS319
-//       <div class="card">
-//         <div class="row">
-//           {/* HERE, IT IS THE SHOPING CART */}
-//           <div class="col-md-8 cart">
-//             <div class="title">
-//               <div class="row">
-//                 <div class="col">
-//                   <h4>
-//                     <b>319 Shopping Cart</b>
-//                   </h4>
-//                 </div>
-//                 <div class="col align-self-center text-right text-muted">
-//                   Products selected {cart.length}
-//                 </div>
-//               </div>
-//             </div>
-//             <div>{listItems}</div>
-//           </div>
-//           <div class="float-end">
-//             <p class="mb-0 me-5 d-flex align-items-center">
-//               <span class="small text-muted me-2">Order total:</span>
-//               <span class="lead fw-normal">${cartTotal}</span>
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-// export default Shop;
